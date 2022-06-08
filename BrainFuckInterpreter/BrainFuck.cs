@@ -2,14 +2,24 @@
 
 public class BrainFuck
 {
-    public List<int> memory { get; private set; }
+    public int[] memory { get; private set; }
     public int pointer;
     public int index;
     public string code;
 
+    public BrainFuck(string code)
+    {
+        this.code = code;
+    }
+    public BrainFuck(){}
+
+    public void Run()
+    {
+        RunCode(code);
+    }
     public void RunCode(string code)
     {
-        this.memory = new List<int>();
+        this.memory = Enumerable.Repeat(0, 2048).ToArray();
         this.pointer = 0;
         this.code = code;
         this.index = 0;
